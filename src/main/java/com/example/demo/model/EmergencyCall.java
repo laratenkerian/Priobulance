@@ -38,7 +38,7 @@ public class EmergencyCall {
     @Column(nullable = false)
     private String priorityLevel;
     @Column(nullable = false)
-    private String Status;
+    private String status;
 
 
     // One emergency call can have multiple patients
