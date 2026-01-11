@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name="emergency_calls")
@@ -38,4 +39,13 @@ public class EmergencyCall {
     private String priorityLevel;
     @Column(nullable = false)
     private String Status;
+
+
+    // One emergency call can have multiple patients
+    @OneToMany(mappedBy = "emergencyCall", cascade = CascadeType.ALL)
+    private List<Patient> patients;
+
+    // One emergency call has exactly one medical assessment
+    @OneToOne(mappedBy = "emergencyCall", cascade = CascadeType.ALL)
+    private MedicalAssessment medicalAssessment;
 }

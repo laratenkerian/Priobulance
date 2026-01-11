@@ -29,6 +29,9 @@ public class Patient {
     @Column(nullable = false )
     private boolean pregnancyFlag;
 
+    @ManyToOne// emergency call has multiple patients
+    @JoinColumn(name = "emergency_call_id", nullable = false)
+    private EmergencyCall emergencyCall;
 
 
 }
