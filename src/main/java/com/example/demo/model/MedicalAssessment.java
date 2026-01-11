@@ -40,5 +40,8 @@ public class MedicalAssessment {
     @Column
     private String otherSymptoms;
 
+    @OneToOne
+    @JoinColumn(name = "emergency_call_id", nullable = false, unique = true)
+    private EmergencyCall emergencyCall;
 
 }
